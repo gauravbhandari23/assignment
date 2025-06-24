@@ -907,6 +907,7 @@ html, body {
     }
     .hamburger {
         display: flex;
+        z-index: 1002;
     }
     .mobile-nav {
         display: none;
@@ -991,6 +992,10 @@ html, body {
         text-align: center;
         margin-left: 12px;
         margin-right: 12px;
+    }
+    .mobile-nav a, .mobile-nav button {
+        text-decoration: none !important;
+        border-bottom: none !important;
     }
 }
 @media (max-width: 600px) {
