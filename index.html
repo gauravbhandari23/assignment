@@ -52,7 +52,7 @@
             <div class="container">
                 <div class="resource-grid">
                     <!-- Example resource card, repeat as needed -->
-                    <div class="resource-card easy">
+                    <div class="resource-card easy always-show">
                         <div class="card-top-row">
                             <span class="level">Easy</span>
                             <span class="category">DATA STRUCTURES & ALGORITHMS</span>
@@ -60,7 +60,7 @@
                         <h3>Design a Free Food App</h3>
                         <p>We created this guide after speaking with our community of interviewers, which includes over 100 current and former Amazon engineers, as well as our corpus of mock interviews</p>
                     </div>
-                    <div class="resource-card medium">
+                    <div class="resource-card medium always-show">
                         <div class="card-top-row">
                             <span class="level">Medium</span>
                             <span class="category">DATA STRUCTURES & ALGORITHMS</span>
@@ -68,31 +68,7 @@
                         <h3>Design a Free Food App</h3>
                         <p>We created this guide after speaking with our community of interviewers, which includes over 100 current and former Amazon engineers, as well as our corpus of mock interviews</p>
                     </div>
-                    <div class="resource-card hard">
-                        <div class="card-top-row">
-                            <span class="level">Hard</span>
-                            <span class="category">DATA STRUCTURES & ALGORITHMS</span>
-                        </div>
-                        <h3>Design a Free Food App</h3>
-                        <p>We created this guide after speaking with our community of interviewers, which includes over 100 current and former Amazon engineers, as well as our corpus of mock interviews</p>
-                    </div>
-                    <div class="resource-card easy">
-                        <div class="card-top-row">
-                            <span class="level">Easy</span>
-                            <span class="category">DATA STRUCTURES & ALGORITHMS</span>
-                        </div>
-                        <h3>Design a Free Food App</h3>
-                        <p>We created this guide after speaking with our community of interviewers, which includes over 100 current and former Amazon engineers, as well as our corpus of mock interviews</p>
-                    </div>
-                    <div class="resource-card medium">
-                        <div class="card-top-row">
-                            <span class="level">Medium</span>
-                            <span class="category">DATA STRUCTURES & ALGORITHMS</span>
-                        </div>
-                        <h3>Design a Free Food App</h3>
-                        <p>We created this guide after speaking with our community of interviewers, which includes over 100 current and former Amazon engineers, as well as our corpus of mock interviews</p>
-                    </div>
-                    <div class="resource-card hard">
+                    <div class="resource-card hard always-show">
                         <div class="card-top-row">
                             <span class="level">Hard</span>
                             <span class="category">DATA STRUCTURES & ALGORITHMS</span>
@@ -248,19 +224,30 @@
                     <a href="#" class="faq-rep-link"><i class="fa-solid fa-phone"></i> Talk to our representative</a>
                 </div>
                 <div class="faq-right">
-                    <div class="faq-divider"></div>
                     <div class="faq-item">
                         <span>How do I schedule an interview?</span>
-                        <span>+</span>
+                        <span class="faq-toggle">+</span>
                     </div>
+                    <div class="faq-answer" style="display: none;">
+                        You can schedule an interview by logging into your dashboard, selecting your preferred time slot, and confirming your availability.
+                    </div>
+                    <div class="faq-divider"></div>
                     <div class="faq-item">
                         <span>Will I be charged per interview?</span>
-                        <span>+</span>
+                        <span class="faq-toggle">+</span>
                     </div>
+                    <div class="faq-answer" style="display: none;">
+                        Charges depend on your subscription plan. Some plans offer a set number of interviews per month, while others are pay-as-you-go.
+                    </div>
+                    <div class="faq-divider"></div>
                     <div class="faq-item">
                         <span>Can I get a trial for On-demand interviews?</span>
-                        <span>+</span>
+                        <span class="faq-toggle">+</span>
                     </div>
+                    <div class="faq-answer" style="display: none;">
+                        Yes, we offer a free trial for On-demand interviews. Sign up and you will be able to access trial features immediately.
+                    </div>
+                    <div class="faq-divider"></div>
                 </div>
             </div>
         </section>
@@ -272,10 +259,10 @@
             <div class="footer-left">
                 <img src="assets/logo-removebg-preview.png" alt="Logo" class="footer-logo">
                 <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i><span class="footer-social-text">Facebook</span></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i><span class="footer-social-text">Instagram</span></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i><span class="footer-social-text">LinkedIn</span></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i><span class="footer-social-text">Pinterest</span></a>
                 </div>
                 <div class="footer-newsletter-block">
                     <div class="footer-newsletter-title">Hire better & faster</div>
@@ -341,6 +328,22 @@
         el.addEventListener('click', () => {
             mobileNav.classList.remove('open');
             hamburgerBtn.classList.remove('open');
+        });
+    });
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach((item, idx) => {
+        item.addEventListener('click', function() {
+            const answer = item.nextElementSibling;
+            const icon = item.querySelector('.faq-toggle');
+            if (answer && answer.classList.contains('faq-answer')) {
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    icon.textContent = '−';
+                } else {
+                    answer.style.display = 'none';
+                    icon.textContent = '+';
+                }
+            }
         });
     });
     </script>
